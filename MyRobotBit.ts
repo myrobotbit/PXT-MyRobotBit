@@ -8,15 +8,6 @@ enum motorDIR {
     Reverse
 }
 
-enum motorSEL {
-    //% block="A"
-    MortorA,
-    //% block="B"
-    MortorB,
-     //% block="AB"
-    MortorAB
-}
-
 /**
  * Custom blocks
  */
@@ -44,43 +35,4 @@ namespace MyRobotBit {
              pins.digitalWritePin(DigitalPin.P15, 0)
         }
     }
-	
-    /**MotorON Select Motor and Direction.   
-      * @param Speed percent of maximum Speed, eg: 50
-      */
-    //% blockId="My_MotorON" block="motor %motorSEL | direction %motorDIR | speed %Speed"
-    //% Speed.min=0 Speed.max=100
-    //% weight=100
-    export function MotorON(Channel:motorSEL, Direction:motorDIR, Speed:number): void {
-        let motorspeed = pins.map(Speed, 0, 100, 0, 1023)    
-        if (Channel == motorSEL.MotorAB && Direction == motorDIR.Forward) {
-             pins.analogWritePin(AnalogPin.P13, motorspeed)
-             pins.digitalWritePin(DigitalPin.P14, 0)
-	     pins.analogWritePin(AnalogPin.P15, motorspeed)
-             pins.digitalWritePin(DigitalPin.P16, 0)
-        }
-        else if (Channel == motorSEL.MotorAB && Direction == motorDIR.Reverse) {
-             pins.analogWritePin(AnalogPin.P14, motorspeed)
-             pins.digitalWritePin(DigitalPin.P13, 0)
-             pins.analogWritePin(AnalogPin.P16, motorspeed)
-             pins.digitalWritePin(DigitalPin.P15, 0)
-        }
-        else if (Channel == motorSEL.MotorA && Direction == motorDIR.Forward) {
-             pins.analogWritePin(AnalogPin.P13, motorspeed)
-             pins.digitalWritePin(DigitalPin.P14, 0)
-        }
-        else if (Channel == motorSEL.MotorB && Direction == motorDIR.Forward) {
-             pins.analogWritePin(AnalogPin.P15, motorspeed)
-             pins.digitalWritePin(DigitalPin.P16, 0)
-        }
-        else if (Channel == motorSEL.MotorA && Direction == motorDIR.Reverse) {
-             pins.analogWritePin(AnalogPin.P14, motorspeed)
-             pins.digitalWritePin(DigitalPin.P13, 0)
-        }
-        else if (Channel == motorSEL.MotorB && Direction == motorDIR.Reverse) {
-             pins.analogWritePin(AnalogPin.P16, motorspeed)
-             pins.digitalWritePin(DigitalPin.P15, 0)
-        }
-    }
-	
 }
