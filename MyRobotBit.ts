@@ -154,8 +154,8 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
             pins.digitalWritePin(DigitalPin.P16, 0)
        }
       if (turnDIR == Turn.Right) {
-            pins.analogWritePin(AnalogPin.P14, motorspeedturn)
-            pins.digitalWritePin(DigitalPin.P13, 0)
+            pins.analogWritePin(AnalogPin.P13, motorspeedturn)
+            pins.digitalWritePin(DigitalPin.P14, 0)
  	    pins.digitalWritePin(DigitalPin.P15, 0)
 	    pins.digitalWritePin(DigitalPin.P16, 0)
        }
