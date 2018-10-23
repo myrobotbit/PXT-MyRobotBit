@@ -34,7 +34,7 @@ enum Turn {
 /**
  * Custom blocks
  */
-//% weight=100 color=#ff00cc weight=10 icon="\uf11e"
+//% weight=100 color=#ff9900 weight=10 icon="\uf11e"
 namespace MyRobotBit {
 
     /**MotorON          Control motor channel direction and speed.   
