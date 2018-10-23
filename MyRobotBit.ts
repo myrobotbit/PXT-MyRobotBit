@@ -34,7 +34,7 @@ enum Turn {
 /**
  * Custom blocks
  */
-//% weight=50 color=#ff6600 weight=10 icon="\uf11e"
+//% weight=100 color=#ff00cc weight=10 icon="\uf11e"
 namespace MyRobotBit {
 
     /**MotorON          Control motor channel direction and speed.   
@@ -42,7 +42,7 @@ namespace MyRobotBit {
     */
     //% blockId="ibit_MotorON" block="motor %motorSEL | direction %motorDIR | speed %Speed"
     //% Speed.min=0 Speed.max=100
-    //% weight=100
+    //% weight=90
     export function MotorON(Channel:motorSEL, Direction:motorDIR, Speed:number): void {
         let motorspeed = pins.map(Speed, 0, 100, 0, 1023)  
         
@@ -83,7 +83,7 @@ namespace MyRobotBit {
     //% blockId="ibit_MotorAB" block="motor[AB] direction %motorDIR |speed[A] %speedA |speed[B] %speedB"
     //% speedA.min=0 speedA.max=100
     //% speedB.min=0 speedB.max=100
-    //% weight=100
+    //% weight=80
     export function MotorAB(Direction:motorDIR, speedA:number, speedB:number): void {
         let motorspeedA = pins.map(speedA, 0, 100, 0, 1023)
         let motorspeedB = pins.map(speedB, 0, 100, 0, 1023)  
@@ -107,6 +107,7 @@ namespace MyRobotBit {
      * @param motor   Which motor to turn off
      */
     //% blockId="Motor_motoroff" block="motor %motorSEL | stop mode %StopMode"
+    //% weight=40
     export function motorOFF(Channel:motorSEL, stop:StopMode): void {
         if (Channel == motorSEL.M12 && stop == StopMode.Brake) {
 		pins.digitalWritePin(DigitalPin.P13, 1)
@@ -145,6 +146,7 @@ namespace MyRobotBit {
 */
 //% blockId="Motor_followlineTurn" block="turn %Turn | speed %speedturn"
 //% speedturn.min=0 speedturn.max=100
+//% weight=50
 export function followlineTurn(turnDIR:Turn, speedturn:number): void {
       let motorspeedturn = pins.map(speedturn,0,100,0,1023)   
       if (turnDIR == Turn.Left) {
@@ -169,6 +171,7 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
  */
  //% blockId="Motor_rotate" block="rotate  %Turn | speed %speedrotate | pause %pausems |mS"
  //% speedrotate.min=0 speedrotate.max=100
+ //% weight=70
  export function Rotate(rotateDIR:Turn, speedrotate:number, pausems: number): void {
       let motorspeedrotate = pins.map(speedrotate,0,100,0,1023)      
       if (rotateDIR == Turn.Left) {
@@ -202,6 +205,7 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
  */
  //% blockId="Motor_rotatenotime"  block="rotate %Turn |speed %speedline"
  //% speedline.min=0 speedline.max=100
+ //% weight=60
  export function RotateNOTIME(rotateLINE:Turn, speedline:number): void {
       let motorspeedline = pins.map(speedline,0,100,0,1023)      
       if (rotateLINE == Turn.Left) {
@@ -224,6 +228,7 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
 */
  //% pausetime.min=1  pausetime.max=100000
  //% blockId=Motor_TimePAUSE block="pause | %pausetime | mS"
+ //% weight=30
  export function TimePAUSE(pausetime: number): void {
 	basic.pause(pausetime)
         }
