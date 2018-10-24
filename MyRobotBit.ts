@@ -228,6 +228,7 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
 */
  //% pausetime.min=1  pausetime.max=100000
  //% blockId=Motor_TimePAUSE block="pause | %pausetime | mS"
+ //% color=#0033cc
  //% weight=30
  export function TimePAUSE(pausetime: number): void {
 	basic.pause(pausetime)
