@@ -47,32 +47,32 @@ namespace MyRobotBit {
         let motorspeed = pins.map(Speed, 0, 100, 0, 1023)  
         
         if (Channel == motorSEL.M1 && Direction == motorDIR.Forward) {
-           pins.analogWritePin(AnalogPin.P13, 1)
-           pins.digitalWritePin(DigitalPin.P14, motorspeed)
+           pins.analogWritePin(AnalogPin.P14, motorspeed)
+           pins.digitalWritePin(DigitalPin.P13, 1)
         }
         else if (Channel == motorSEL.M2 && Direction == motorDIR.Forward) {
-           pins.analogWritePin(AnalogPin.P15, 1)
-           pins.digitalWritePin(DigitalPin.P16, motorspeed)
+           pins.analogWritePin(AnalogPin.P16, motorspeed)
+           pins.digitalWritePin(DigitalPin.P15, 1)
         }
         else if (Channel == motorSEL.M1 && Direction == motorDIR.Reverse) {
-           pins.analogWritePin(AnalogPin.P14, 1)
-           pins.digitalWritePin(DigitalPin.P13, motorspeed)
+           pins.analogWritePin(AnalogPin.P13, motorspeed)
+           pins.digitalWritePin(DigitalPin.P14, 1)
         }
         else if (Channel == motorSEL.M2 && Direction == motorDIR.Reverse) {
-           pins.analogWritePin(AnalogPin.P16, 1)
-           pins.digitalWritePin(DigitalPin.P15, motorspeed)  
+           pins.analogWritePin(AnalogPin.P15, motorspeed)
+           pins.digitalWritePin(DigitalPin.P16, 1)  
         }
         else if (Channel == motorSEL.M12 && Direction == motorDIR.Forward) {
-            pins.analogWritePin(AnalogPin.P13, 1)
-            pins.digitalWritePin(DigitalPin.P14, motorspeed)
-	    pins.analogWritePin(AnalogPin.P15, 1)
-            pins.digitalWritePin(DigitalPin.P16, motorspeed)
+           pins.analogWritePin(AnalogPin.P14, motorspeed)
+           pins.digitalWritePin(DigitalPin.P13, 1)
+           pins.analogWritePin(AnalogPin.P16, motorspeed)
+           pins.digitalWritePin(DigitalPin.P15, 1)
         }
         else if (Channel == motorSEL.M12 && Direction == motorDIR.Reverse) {
-            pins.analogWritePin(AnalogPin.P14, 1)
-            pins.digitalWritePin(DigitalPin.P13, motorspeed)
-            pins.analogWritePin(AnalogPin.P16, 1)
-            pins.digitalWritePin(DigitalPin.P15, motorspeed)
+           pins.analogWritePin(AnalogPin.P13, motorspeed)
+           pins.digitalWritePin(DigitalPin.P14, 1)
+           pins.analogWritePin(AnalogPin.P15, motorspeed)
+           pins.digitalWritePin(DigitalPin.P16, 1)  		
         }
     }
 
