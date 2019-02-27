@@ -44,7 +44,7 @@ namespace MyRobotBit {
     //% Speed.min=0 Speed.max=100
     //% weight=90
     export function MotorON(Channel:motorSEL, Direction:motorDIR, Speed:number): void {
-        let motorspeed = pins.map(Speed, 0, 100, 0, 1023)  
+        let motorspeed = pins.map(Speed, 0, 100, 1023, 0)  
         
         if (Channel == motorSEL.M1 && Direction == motorDIR.Forward) {
            pins.analogWritePin(AnalogPin.P14, motorspeed)
@@ -85,8 +85,8 @@ namespace MyRobotBit {
     //% speedB.min=0 speedB.max=100
     //% weight=80
     export function MotorAB(Direction:motorDIR, speedA:number, speedB:number): void {
-        let motorspeedA = pins.map(speedA, 0, 100, 0, 1023)
-        let motorspeedB = pins.map(speedB, 0, 100, 0, 1023)  
+        let motorspeedA = pins.map(speedA, 0, 100, 1023, 0)
+        let motorspeedB = pins.map(speedB, 0, 100, 1023, 0)  
         
         if (Direction == motorDIR.Forward) {
             pins.analogWritePin(AnalogPin.P14, motorspeedA)
@@ -148,7 +148,7 @@ namespace MyRobotBit {
 //% speedturn.min=0 speedturn.max=100
 //% weight=50
 export function followlineTurn(turnDIR:Turn, speedturn:number): void {
-      let motorspeedturn = pins.map(speedturn,0,100,0,1023)   
+      let motorspeedturn = pins.map(speedturn,0,100,1023, 0)   
       if (turnDIR == Turn.Left) {
  	    pins.digitalWritePin(DigitalPin.P13, 0)
 	    pins.digitalWritePin(DigitalPin.P14, 0) 
@@ -173,7 +173,7 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
  //% speedrotate.min=0 speedrotate.max=100
  //% weight=70
  export function Rotate(rotateDIR:Turn, speedrotate:number, pausems: number): void {
-      let motorspeedrotate = pins.map(speedrotate,0,100,0,1023)      
+      let motorspeedrotate = pins.map(speedrotate,0,100,1023, 0)      
       if (rotateDIR == Turn.Left) {
            pins.analogWritePin(AnalogPin.P13, motorspeedrotate)
            pins.digitalWritePin(DigitalPin.P14, 1) 
@@ -207,7 +207,7 @@ export function followlineTurn(turnDIR:Turn, speedturn:number): void {
  //% speedline.min=0 speedline.max=100
  //% weight=60
  export function RotateNOTIME(rotateLINE:Turn, speedline:number): void {
-      let motorspeedline = pins.map(speedline,0,100,0,1023)      
+      let motorspeedline = pins.map(speedline,0,100,1023, 0)      
       if (rotateLINE == Turn.Left) {
            pins.analogWritePin(AnalogPin.P13, motorspeedline)
            pins.digitalWritePin(DigitalPin.P14, 1) 
